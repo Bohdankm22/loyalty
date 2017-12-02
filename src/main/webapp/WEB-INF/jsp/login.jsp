@@ -35,13 +35,33 @@
                 </fieldset>
             </form>
         </div>
+
         <h1>Login as a Manager</h1>
+        <div class="panel-body">
+            <b>Sign In With Intuit</b><br />
+            <a class="imgLink" onclick="'launchPopup(\'signInWithIntuit\');'" href="#">
+                <img
+                        style="height: 40px"
+                        src="/resources/images/IntuitSignIn-lg-white@2x.jpg"
+
+                />
+            </a>
+        </div>
     </div>
 
 </div>
 
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script>
+    function launchPopup(path) {
+        var win;
+        var checkConnect;
+        var parameters = "location=1,width=800,height=650";
+        parameters += ",left=" + (screen.width - 800) / 2 + ",top=" + (screen.height - 650) / 2;
+        // Launch Popup
+        win = window.open(path, 'connectPopup', parameters);
+    }
+</script>
 </body>
 
 </html>
