@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <jsp:include page="banner.jsp" />
+    <jsp:include page="custbanner.jsp" />
 
     <div class="container">
 
