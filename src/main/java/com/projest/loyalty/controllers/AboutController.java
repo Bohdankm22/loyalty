@@ -11,7 +11,7 @@ public class AboutController {
 
     // inject via application.properties
     @Value("${about.message:test}")
-    private String message = "Hello World";
+    private String message = "";
 
     @RequestMapping("/about")
     public String welcome(Map<String, Object> model) {
