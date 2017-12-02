@@ -5,7 +5,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DB_Service {
+public class DBService {
+    private final Connection connection;
+
+    public DBService() {
+        this.connection = getMysqlConnection();
+    }
 
     public static Connection getMysqlConnection() {
         try {
