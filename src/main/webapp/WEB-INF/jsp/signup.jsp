@@ -11,17 +11,44 @@
 </head>
 <body>
 
-    <jsp:include page="banner.jsp" />
+<jsp:include page="banner.jsp"/>
 
-    <div class="container">
+<div class="container">
 
-        <div class="starter-template">
-            <h1>Sign up with your login/password</h1>
+    <div class="starter-template">
+        <h1>Sing up as a Customer</h1>
+        <div class="panel-body">
+            <form accept-charset="UTF-8" role="form" method="post" action="singUpCustomer">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="control-label" for="login">Login</label>
+                        <input class="form-control" name="login" id="login" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="password">Password</label>
+                        <input class="form-control" name="password" id="password" type="text" value="">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="first_name">First name</label>
+                        <input class="form-control" name="first_name" id="first_name" type="text" value="">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="middle_name">Middle name</label>
+                        <input class="form-control" name="middle_name" id="middle_name" type="text" value="">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="last_name">Last name</label>
+                        <input class="form-control" name="last_name" id="last_name" type="text" value="">
+                    </div>
+                    <button class="btn btn-lg btn-success btn-block" type="submit">Sing up</button>
+                </fieldset>
+            </form>
         </div>
-
     </div>
 
-    <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</div>
+
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 
