@@ -37,6 +37,32 @@
         </dependency>
 
         <dependency>
+            <groupId>com.intuit.quickbooks-online</groupId>
+            <artifactId>ipp-v3-java-data</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+
+        <!-- devkit jar without dependencies-->
+        <dependency>
+            <groupId>com.intuit.quickbooks-online</groupId>
+            <artifactId>ipp-v3-java-devkit</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.intuit.quickbooks-online</groupId>
+            <artifactId>oauth2-platform-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <!--import com.intuit.developer.sampleapp.oauth2.client.OAuth2PlatformClientFactory;-->
+        <dependency>
+            <groupId>com.intuit.quickbooks-online</groupId>
+            <artifactId>oauth2-platform-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
