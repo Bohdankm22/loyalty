@@ -1,5 +1,5 @@
 package com.projest.loyalty.database;
-import com.mysql.jdbc.Driver;
+import com.mysql.cj.jdbc.Driver;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ public class DBService {
 
     public static Connection getMysqlConnection() {
         try {
-            DriverManager.registerDriver((Driver) Class.forName("com.mysql.jdbc.Driver").newInstance());
+            DriverManager.registerDriver((Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance());
 
             StringBuilder url = new StringBuilder();
 
@@ -24,7 +24,8 @@ public class DBService {
                     append("3306/").                //port
                     append("loyalty?").          //db name
                     append("user=admin&").          //login
-                    append("password=password");       //password
+                    append("password=password&"). //password
+                    append("useSSL=false");
 
             System.out.println("URL: " + url + "\n");
 
