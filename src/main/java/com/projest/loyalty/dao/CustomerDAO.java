@@ -1,5 +1,6 @@
 package com.projest.loyalty.dao;
 
+import com.projest.loyalty.database.Executor;
 import com.projest.loyalty.entity.Customer;
 
 import java.sql.Connection;

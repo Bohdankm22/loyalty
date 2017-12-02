@@ -1,4 +1,4 @@
-package com.projest.loyalty.dao;
+package com.projest.loyalty.database;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
