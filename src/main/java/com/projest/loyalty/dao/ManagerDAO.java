@@ -6,11 +6,11 @@ import com.projest.loyalty.entity.Manager;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class ManagerDao {
+public class ManagerDAO {
 
     private Executor executor;
 
-    public ManagerDao(Connection connection) {
+    public ManagerDAO(Connection connection) {
         this.executor = new Executor(connection);
     }
 
