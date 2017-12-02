@@ -39,11 +39,10 @@
         <h1>Login as a Manager</h1>
         <div class="panel-body">
             <b>Sign In With Intuit</b><br />
-            <a class="imgLink" onclick="'launchPopup(\'signInWithIntuit\');'" href="#">
+            <a class="imgLink" onclick="launchPopup('/connectToQuickbooks');" href="#">
                 <img
                         style="height: 40px"
                         src="/resources/images/IntuitSignIn-lg-white@2x.jpg"
-
                 />
             </a>
         </div>
