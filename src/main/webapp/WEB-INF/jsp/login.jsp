@@ -11,18 +11,36 @@
 </head>
 <body>
 
-    <jsp:include page="banner.jsp" />
+<jsp:include page="banner.jsp"/>
 
-    <div class="container">
+<div class="container">
 
-        <div class="starter-template">
-            <h1>Login as a Customer</h1>
-            <h1>Login as a Manager</h1>
+    <div class="starter-template">
+        <h1>Login as a Customer</h1>
+        <div class="panel-body">
+            <form accept-charset="UTF-8" role="form" method="post" action="loginCustomer">
+                <fieldset>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Login" name="login" type="text">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input name="remember" type="checkbox" value="Remember Me"> Remember Me
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
+                </fieldset>
+            </form>
         </div>
-
+        <h1>Login as a Manager</h1>
     </div>
 
-    <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</div>
+
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 
