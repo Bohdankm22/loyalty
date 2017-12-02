@@ -8,6 +8,6 @@ public class SingUpController {
 
     @RequestMapping("/signup")
     public String signup() {
-        return "login";
+        return "signup";
     }
 }
