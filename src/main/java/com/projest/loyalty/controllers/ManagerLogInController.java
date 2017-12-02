@@ -45,4 +45,9 @@ public class ManagerLogInController {
         return null;
     }
 
+    @RequestMapping("/managerview")
+    public String connected() {
+        return "managerview";
+    }
+
 }
