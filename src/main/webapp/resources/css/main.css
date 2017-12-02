@@ -1,5 +1,5 @@
 h1 {
-    text-color: #0000FF;
+    color: #0000FF;
 }
 
 h2 {
@@ -9,6 +9,7 @@ h2 {
     position: absolute;
     bottom: 0;
     width: 100%;
+    text-align: center;
     /* Set the fixed height of the footer here */
     height: 60px;
     background-color: #f5f5f5;
