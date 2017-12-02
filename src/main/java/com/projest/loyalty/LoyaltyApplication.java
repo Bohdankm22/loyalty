@@ -13,7 +13,6 @@ public class LoyaltyApplication extends SpringBootServletInitializer {
 		return application.sources(LoyaltyApplication.class);
 	}
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(LoyaltyApplication.class, args);
 	}
