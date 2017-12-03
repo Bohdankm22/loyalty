@@ -15,10 +15,12 @@
 
     <div class="container">
 
+        <h1>Hello, ${customerFirstName}</h1>
+        <br/>
         <div class="starter-template">
-            <h1>This is a customer view</h1>
+            <h2>Congradulations! You have <b>${customer.points}</b> points!</h2>
         </div>
-        <h2>Hello, ${customerFirstName}</h2>
+
 
 
 

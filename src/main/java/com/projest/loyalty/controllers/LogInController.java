@@ -20,13 +20,14 @@ public class LogInController {
     }
 
     @RequestMapping(value = "/loginCustomer", method = RequestMethod.POST)
-    public String submit(@RequestParam("login") String login, Model model, HttpSession session) {
-        Customer customer = new CustomerDAO(DBService.getMysqlConnection()).getCustomerByLogin(login);
+    public String submit(@RequestParam("login") String login, @RequestParam("password") String password, Model model, HttpSession session) {
+        Customer customer = new CustomerDAO(DBService.getMysqlConnection()).getCustomerByLogin(login, password);
         if (customer == null) {
             return "/error";
         }
         session.setAttribute("username", customer.getFirstName());
         model.addAttribute("customerFirstName", customer.getFirstName());
+        model.addAttribute("customer", customer);
         return "customerView";
     }
 }

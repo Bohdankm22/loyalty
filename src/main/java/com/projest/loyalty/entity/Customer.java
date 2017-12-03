@@ -8,14 +8,16 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String middleName;
+    private long points;
 
-    public Customer(long id, String login, String password, String firstName, String lastName, String middleName) {
+    public Customer(long id, String login, String password, String firstName, String lastName, String middleName, Long points) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
+        this.points = points;
     }
 
     public long getId() {
@@ -64,6 +66,14 @@ public class Customer {
 
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
+    }
+
+    public long getPoints() {
+        return points;
+    }
+
+    public void setPoints(long points) {
+        this.points = points;
     }
 
     @Override
