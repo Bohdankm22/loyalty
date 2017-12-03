@@ -1,5 +1,6 @@
 package com.projest.loyalty.controllers;
 
+import com.intuit.oauth2.client.OAuth2PlatformClient;
 import com.intuit.oauth2.config.OAuth2Config;
 import com.intuit.oauth2.config.Scope;
 import com.intuit.oauth2.exception.InvalidRequestException;
@@ -47,6 +48,7 @@ public class ManagerLogInController {
 
     @RequestMapping("/managerview")
     public String connected() {
+
         return "managerview";
     }
 
