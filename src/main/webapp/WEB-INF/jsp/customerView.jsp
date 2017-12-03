@@ -18,7 +18,9 @@
         <div class="starter-template">
             <h1>This is a customer view</h1>
         </div>
-        <h2>LoggedIn Guy: ${customerFirstName}</h2>
+        <h2>Hello, ${customerFirstName}</h2>
+
+
 
 
     </div>
