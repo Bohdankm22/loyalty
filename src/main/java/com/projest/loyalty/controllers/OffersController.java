@@ -4,6 +4,7 @@ import com.intuit.ipp.data.Item;
 import com.projest.loyalty.appinfo.ManagerInfo;
 import com.projest.loyalty.dao.CompanyDAO;
 import com.projest.loyalty.dao.LoyaltyProgramDAO;
+import com.projest.loyalty.dao.OfferDAO;
 import com.projest.loyalty.database.DBService;
 import com.projest.loyalty.entity.Company;
 import com.projest.loyalty.entity.LoyaltyProgram;
@@ -40,10 +41,13 @@ public class OffersController {
         loyaltyProgram = new LoyaltyProgramDAO(DBService.getMysqlConnection()).getLoyaltyByCompany(company);
         programName = loyaltyProgram.getName();
         companyName = loyaltyProgram.getCompany().getName();
+        OfferDAO offerDAO = new OfferDAO(DBService.getMysqlConnection());
+        availOffers = offerDAO.getOffers();
         model.addAttribute("programName", programName);
         model.addAttribute("companyName", companyName);
         model.addAttribute("availOffers", availOffers);
         model.addAttribute("goods", ManagerInfo.getInstance().getGoods());
+        model.addAttribute("availOffers", availOffers);
         return "offers";
     }
 
