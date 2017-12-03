@@ -10,7 +10,7 @@ public class CompanyInfoQuery {
     private static final Logger logger = Logger.getLogger(CompanyInfoQuery.class);
     private static final String GET_COMPANY_INFO_QUERY = "select * from companyinfo";
 
-    public CompanyInfo getCompanyInfo() {
+    public static CompanyInfo getCompanyInfo() {
         CompanyInfo companyInfo = null;
         try {
             QueryResult queryResult = DataServiceFactory.getDataService().executeQuery(GET_COMPANY_INFO_QUERY);
