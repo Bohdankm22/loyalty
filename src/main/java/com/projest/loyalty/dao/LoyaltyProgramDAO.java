@@ -30,4 +30,19 @@ public class LoyaltyProgramDAO {
         }
         return null;
     }
+
+    public LoyaltyProgram getLoyaltyByCompany(Company company) {
+        try {
+            return executor.execQuery(String.format("SELECT *" +
+                    "FROM LoyaltyProgram " +
+                    "WHERE loyalty_company_id=%d;", company.getId()), result -> {
+                result.next();
+                return new LoyaltyProgram(result.getLong(1), result.getString(2),
+                        new CompanyDAO(DBService.getMysqlConnection()).get(result.getLong(3)));
+            });
+        } catch (SQLException e) {
+            logger.error("Could not execute query", e);
+        }
+        return null;
+    }
 }
