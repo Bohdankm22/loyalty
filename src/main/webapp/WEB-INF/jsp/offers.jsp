@@ -28,7 +28,14 @@
 
         <h2>Existing offers:</h2>
         <div class="container">
-            <table>
+            <table class="table table-bordered table-responsive">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Discount</th>
+                    <th>Points</th>
+                </tr>
                 <c:forEach items="${availOffers}" var="currentDataSetObj">
                     <tr>
                         <td><c:out value="${currentDataSetObj.name}"/></td>
@@ -45,6 +52,12 @@
         <div class="container">
             <form method="post" action="createOffer">
                 <table class="table table-bordered table-responsive">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th></th>
+                    </tr>
                     <c:forEach items="${goods}" var="currentDataSetObj">
                         <tr>
                             <td><c:out value="${currentDataSetObj.name}"/></td>

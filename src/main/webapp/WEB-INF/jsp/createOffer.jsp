@@ -72,7 +72,7 @@
                     </tr>
                 </table>
 
-                <button class="label-success" value="Create offer"></button>
+                <button class="label-success" value="Create offer">Create offer</button>
             </form>
 
         </div>

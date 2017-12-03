@@ -22,6 +22,9 @@ public class LogInController {
     @RequestMapping(value = "/loginCustomer", method = RequestMethod.POST)
     public String submit(@RequestParam("login") String login, Model model, HttpSession session) {
         Customer customer = new CustomerDAO(DBService.getMysqlConnection()).getCustomerByLogin(login);
+        if (customer == null) {
+            return "/error";
+        }
         session.setAttribute("username", customer.getFirstName());
         model.addAttribute("customerFirstName", customer.getFirstName());
         return "customerView";
