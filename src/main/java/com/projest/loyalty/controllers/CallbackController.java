@@ -9,7 +9,6 @@ import com.intuit.oauth2.exception.OpenIdException;
 import com.projest.loyalty.appinfo.ManagerInfo;
 import com.projest.loyalty.dao.ManagerDAO;
 import com.projest.loyalty.database.DBService;
-import com.projest.loyalty.queries.InvoiceQuery;
 import com.projest.loyalty.quickbooks.OAuth2PlatformClientFactory;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +63,7 @@ public class CallbackController {
 
                 Config.setProperty(Config.BASE_URL_QBO, env.getProperty("intuit.url"));
 
-                saveManagerInfo(bearerTokenResponse, client, realmId);
+                saveManagerInfo(bearerTokenResponse, client, realmId, session);
 
                 return "managerview";
             }
@@ -75,7 +74,7 @@ public class CallbackController {
         return null;
     }
 
-    private void saveManagerInfo(BearerTokenResponse barel, OAuth2PlatformClient client, String relmId) {
+    private void saveManagerInfo(BearerTokenResponse barel, OAuth2PlatformClient client, String relmId, HttpSession session) {
         ManagerInfo.getInstance().setManagerToken(barel.getAccessToken());
         ManagerInfo.getInstance().setRealmId(relmId);
         UserInfoResponse response = null;
@@ -87,6 +86,7 @@ public class CallbackController {
                 managerDAO.insertManager(response.getGivenName(), response.getFamilyName(), response.getEmail(),
                         response.getPhoneNumber());
             }
+            session.setAttribute(env.getProperty("manager.id"), managerDAO.getByEmail(response.getEmail()));
         } catch (OpenIdException e) {
             e.printStackTrace();
         }
