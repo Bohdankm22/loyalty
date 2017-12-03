@@ -1,28 +1,39 @@
 package com.projest.loyalty.controllers;
 
-import javax.servlet.http.HttpSession;
-
-import com.projest.loyalty.dao.ManagerDAO;
-import com.projest.loyalty.database.DBService;
-import com.projest.loyalty.entity.Manager;
-import com.projest.loyalty.quickbooks.OAuth2PlatformClientFactory;
-import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import com.intuit.ipp.core.Context;
+import com.intuit.ipp.core.ServiceType;
+import com.intuit.ipp.exception.FMSException;
+import com.intuit.ipp.security.OAuth2Authorizer;
+import com.intuit.ipp.services.DataService;
+import com.intuit.ipp.services.QueryResult;
+import com.intuit.ipp.util.Config;
 import com.intuit.oauth2.client.OAuth2PlatformClient;
 import com.intuit.oauth2.data.BearerTokenResponse;
 import com.intuit.oauth2.data.UserInfoResponse;
 import com.intuit.oauth2.exception.OAuthException;
 import com.intuit.oauth2.exception.OpenIdException;
+import com.projest.loyalty.dao.ManagerDAO;
+import com.projest.loyalty.database.DBService;
+import com.projest.loyalty.quickbooks.ContextFactory;
+import com.projest.loyalty.quickbooks.DataServiceFactory;
+import com.projest.loyalty.quickbooks.OAuth2PlatformClientFactory;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 
 @Controller
+@PropertySource(value = "classpath:/application.properties", ignoreResourceNotFound = true)
 public class CallbackController {
 
+    @Autowired
+    org.springframework.core.env.Environment env;
     @Autowired
     OAuth2PlatformClientFactory factory;
 
@@ -34,7 +45,7 @@ public class CallbackController {
      * Hence Unless a user action is quick and mandatory, proceed to exchange the Authorization Code for
      * BearerToken
      *
-     * @param auth_code
+     * @param authCode
      * @param state
      * @param realmId
      * @param session
@@ -58,26 +69,7 @@ public class CallbackController {
                 session.setAttribute("access_token", bearerTokenResponse.getAccessToken());
                 session.setAttribute("refresh_token", bearerTokenResponse.getRefreshToken());
 
-	            /*
-	                Update your Data store here with user's AccessToken and RefreshToken along with the realmId
-
-	                However, in case of OpenIdConnect, when you request OpenIdScopes during authorization,
-	                you will also receive IDToken from Intuit.
-	                You first need to validate that the IDToken actually came from Intuit.
-	             */
-
-                if (StringUtils.isNotBlank(bearerTokenResponse.getIdToken())) {
-                    try {
-                        if (client.validateIDToken(bearerTokenResponse.getIdToken())) {
-                            logger.info("IdToken is Valid");
-                            //get user info
-                            saveUserInfo(bearerTokenResponse.getAccessToken(), session, client);
-                        }
-                    } catch (OpenIdException e) {
-                        logger.error("Exception validating id token ", e);
-                    }
-                }
-
+                saveManagerInfo(bearerTokenResponse, realmId, client);
                 return "managerview";
             }
             logger.info("csrf token mismatch ");
@@ -85,6 +77,42 @@ public class CallbackController {
             logger.error("Exception in callback handler ", e);
         }
         return null;
+    }
+
+    private void saveManagerInfo(BearerTokenResponse barel, String realmId, OAuth2PlatformClient client) {
+        try {
+
+            Config.setProperty(Config.BASE_URL_QBO, env.getProperty("OAuth2AppClientId"));
+
+            // Create OAuth object
+            OAuth2Authorizer oauth = new OAuth2Authorizer(barel.getAccessToken()); //set access token obtained from BearerTokenResponse
+
+            // Create context
+            Context context = new Context(oauth, ServiceType.QBO, realmId); //set realm id
+
+            // Create dataservice
+            DataService service = new DataService(context);
+
+
+            // Make the API call
+            String sql = "select * from companyinfo";
+            QueryResult queryResult = service.executeQuery(sql);
+        } catch (FMSException e) {
+
+        }
+
+        UserInfoResponse response = null;
+        try {
+            response = client.getUserInfo(barel.getAccessToken());
+
+            ManagerDAO managerDAO = new ManagerDAO(DBService.getMysqlConnection());
+            if (!managerDAO.checkExistsByEmail(response.getEmail())) {
+                managerDAO.insertManager(response.getGivenName(), response.getFamilyName(), response.getEmail(),
+                        response.getPhoneNumber());
+            }
+        } catch (SQLException | OpenIdException e) {
+            e.printStackTrace();
+        }
     }
 
 
