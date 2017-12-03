@@ -2,6 +2,9 @@ package com.projest.loyalty.controllers;
 
 import javax.servlet.http.HttpSession;
 
+import com.projest.loyalty.dao.ManagerDAO;
+import com.projest.loyalty.database.DBService;
+import com.projest.loyalty.entity.Manager;
 import com.projest.loyalty.quickbooks.OAuth2PlatformClientFactory;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
