@@ -9,6 +9,7 @@ import com.intuit.oauth2.exception.OpenIdException;
 import com.projest.loyalty.appinfo.ManagerInfo;
 import com.projest.loyalty.dao.ManagerDAO;
 import com.projest.loyalty.database.DBService;
+import com.projest.loyalty.queries.InvoiceQuery;
 import com.projest.loyalty.quickbooks.OAuth2PlatformClientFactory;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +65,7 @@ public class CallbackController {
                 Config.setProperty(Config.BASE_URL_QBO, env.getProperty("intuit.url"));
 
                 saveManagerInfo(bearerTokenResponse, client, realmId);
+
                 return "managerview";
             }
             logger.info("csrf token mismatch ");
