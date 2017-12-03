@@ -9,6 +9,7 @@ import com.intuit.oauth2.exception.OpenIdException;
 import com.projest.loyalty.appinfo.ManagerInfo;
 import com.projest.loyalty.dao.ManagerDAO;
 import com.projest.loyalty.database.DBService;
+import com.projest.loyalty.queries.ItemQuery;
 import com.projest.loyalty.quickbooks.OAuth2PlatformClientFactory;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
