@@ -19,8 +19,7 @@ public class Executor {
         stmt.close();
     }
 
-    public <T> T execQuery(String query,
-                           ResultHandler<T> handler)
+    public <T> T execQuery(String query, ResultHandler<T> handler)
             throws SQLException {
         Statement stmt = connection.createStatement();
         stmt.execute(query);
@@ -30,6 +29,14 @@ public class Executor {
         stmt.close();
 
         return value;
+    }
+
+    // Only for update and delete queries
+    public boolean execQuery(String query) throws SQLException {
+        Statement stmt = connection.createStatement();
+        stmt.execute(query);
+        stmt.close();
+        return true;
     }
 
     public interface ResultHandler<T> {
