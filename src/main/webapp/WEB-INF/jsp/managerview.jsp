@@ -19,7 +19,7 @@
 </head>
 <body>
 
-    <jsp:include page="custbanner.jsp" />
+    <jsp:include page="managerbanner.jsp" />
 
     <div class="container">
 
