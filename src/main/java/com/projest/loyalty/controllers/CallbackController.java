@@ -1,21 +1,14 @@
 package com.projest.loyalty.controllers;
 
-import com.intuit.ipp.core.Context;
-import com.intuit.ipp.core.ServiceType;
-import com.intuit.ipp.exception.FMSException;
-import com.intuit.ipp.security.OAuth2Authorizer;
-import com.intuit.ipp.services.DataService;
-import com.intuit.ipp.services.QueryResult;
 import com.intuit.ipp.util.Config;
 import com.intuit.oauth2.client.OAuth2PlatformClient;
 import com.intuit.oauth2.data.BearerTokenResponse;
 import com.intuit.oauth2.data.UserInfoResponse;
 import com.intuit.oauth2.exception.OAuthException;
 import com.intuit.oauth2.exception.OpenIdException;
+import com.projest.loyalty.appinfo.ManagerInfoBean;
 import com.projest.loyalty.dao.ManagerDAO;
 import com.projest.loyalty.database.DBService;
-import com.projest.loyalty.quickbooks.ContextFactory;
-import com.projest.loyalty.quickbooks.DataServiceFactory;
 import com.projest.loyalty.quickbooks.OAuth2PlatformClientFactory;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +64,7 @@ public class CallbackController {
 
                 Config.setProperty(Config.BASE_URL_QBO, env.getProperty("intuit.url"));
 
-                saveManagerInfo(session, bearerTokenResponse, client);
+                saveManagerInfo(bearerTokenResponse, client, realmId);
                 return "managerview";
             }
             logger.info("csrf token mismatch ");
@@ -81,7 +74,9 @@ public class CallbackController {
         return null;
     }
 
-    private void saveManagerInfo(HttpSession session, BearerTokenResponse barel, OAuth2PlatformClient client) {
+    private void saveManagerInfo(BearerTokenResponse barel, OAuth2PlatformClient client, String relmId) {
+        ManagerInfoBean.getInstance().setManagerToken(barel.getAccessToken());
+        ManagerInfoBean.getInstance().setRealmId(relmId);
         UserInfoResponse response = null;
         try {
             response = client.getUserInfo(barel.getAccessToken());
@@ -91,24 +86,8 @@ public class CallbackController {
                 managerDAO.insertManager(response.getGivenName(), response.getFamilyName(), response.getEmail(),
                         response.getPhoneNumber());
             }
-        } catch (SQLException | OpenIdException e) {
+        } catch (OpenIdException e) {
             e.printStackTrace();
-        }
-    }
-
-
-    private void saveUserInfo(String accessToken, HttpSession session, OAuth2PlatformClient client) {
-        //Ideally you would fetch the realmId and the accessToken from the data store based on the user account here.
-
-        try {
-            UserInfoResponse response = client.getUserInfo(accessToken);
-
-            session.setAttribute("sub", response.getSub());
-            session.setAttribute("givenName", response.getGivenName());
-            session.setAttribute("email", response.getEmail());
-
-        } catch (Exception ex) {
-            logger.error("Exception while retrieving user info ", ex);
         }
     }
 }
