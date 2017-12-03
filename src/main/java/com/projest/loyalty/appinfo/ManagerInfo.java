@@ -1,21 +1,16 @@
 package com.projest.loyalty.appinfo;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import javax.servlet.ServletContext;
-
-public class ManagerInfoBean {
+public class ManagerInfo {
 
     private String managerToken;
     private String realmId;
 
-    private static ManagerInfoBean instance = new ManagerInfoBean();
+    private static ManagerInfo instance = new ManagerInfo();
 
-    private ManagerInfoBean() {
+    private ManagerInfo() {
     }
 
-    public static ManagerInfoBean getInstance() {
+    public static ManagerInfo getInstance() {
         return instance;
     }
 
@@ -35,7 +30,7 @@ public class ManagerInfoBean {
         this.realmId = realmId;
     }
 
-    public static void setInstance(ManagerInfoBean instance) {
-        ManagerInfoBean.instance = instance;
+    public static void setInstance(ManagerInfo instance) {
+        ManagerInfo.instance = instance;
     }
 }

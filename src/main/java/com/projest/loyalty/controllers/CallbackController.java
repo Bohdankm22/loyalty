@@ -6,7 +6,7 @@ import com.intuit.oauth2.data.BearerTokenResponse;
 import com.intuit.oauth2.data.UserInfoResponse;
 import com.intuit.oauth2.exception.OAuthException;
 import com.intuit.oauth2.exception.OpenIdException;
-import com.projest.loyalty.appinfo.ManagerInfoBean;
+import com.projest.loyalty.appinfo.ManagerInfo;
 import com.projest.loyalty.dao.ManagerDAO;
 import com.projest.loyalty.database.DBService;
 import com.projest.loyalty.quickbooks.OAuth2PlatformClientFactory;
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 
 
 @Controller
@@ -75,8 +74,8 @@ public class CallbackController {
     }
 
     private void saveManagerInfo(BearerTokenResponse barel, OAuth2PlatformClient client, String relmId) {
-        ManagerInfoBean.getInstance().setManagerToken(barel.getAccessToken());
-        ManagerInfoBean.getInstance().setRealmId(relmId);
+        ManagerInfo.getInstance().setManagerToken(barel.getAccessToken());
+        ManagerInfo.getInstance().setRealmId(relmId);
         UserInfoResponse response = null;
         try {
             response = client.getUserInfo(barel.getAccessToken());
