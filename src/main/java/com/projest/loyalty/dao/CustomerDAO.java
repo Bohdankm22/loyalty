@@ -19,17 +19,18 @@ public class CustomerDAO {
             result.next();
             return new Customer(result.getLong(1), result.getString(2),
                     result.getString(3), result.getString(4), result.getString(5),
-                    result.getString(6));
+                    result.getString(6), result.getLong(7));
         });
     }
 
-    public Customer getCustomerByLogin(String login) {
+    public Customer getCustomerByLogin(String login, String password) {
         try {
-            return executor.execQuery(String.format("select * from customer where customer_login='%s'", login), result -> {
+            return executor.execQuery(String.format("select * from customer where customer_login='%s' and customer_password='%s'",
+                    login, password), result -> {
                 result.next();
                 return new Customer(result.getLong(1), result.getString(2),
                         result.getString(3), result.getString(4), result.getString(5),
-                        result.getString(6));
+                        result.getString(6), result.getLong(7));
             });
         } catch (SQLException e) {
             e.printStackTrace();
