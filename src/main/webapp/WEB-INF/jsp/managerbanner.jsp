@@ -8,6 +8,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="loyaltyProgram">Loyalty Program</a></li>
+                <li><a href="offers">Offers</a></li>
             </ul>
 
             <ul class="nav navbar-nav pull-right">

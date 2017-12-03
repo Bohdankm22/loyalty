@@ -78,6 +78,7 @@ public class CallbackController {
     private void saveManagerInfo(BearerTokenResponse barel, OAuth2PlatformClient client, String relmId, HttpSession session) {
         ManagerInfo.getInstance().setManagerToken(barel.getAccessToken());
         ManagerInfo.getInstance().setRealmId(relmId);
+        ManagerInfo.getInstance().setGoods(ItemQuery.getAllItems());
         UserInfoResponse response = null;
         try {
             response = client.getUserInfo(barel.getAccessToken());
