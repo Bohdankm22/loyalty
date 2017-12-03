@@ -46,4 +46,13 @@ public class ManagerInfo {
     public void setGoods(List<Item> goods) {
         this.goods = goods;
     }
+
+    public Item getGoodById(String itemId) {
+        for (Item item: getGoods()) {
+            if (item.getId().equals(itemId)) {
+                return item;
+            }
+        }
+        return null;
+    }
 }
