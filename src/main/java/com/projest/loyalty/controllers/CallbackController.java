@@ -86,7 +86,7 @@ public class CallbackController {
                 managerDAO.insertManager(response.getGivenName(), response.getFamilyName(), response.getEmail(),
                         response.getPhoneNumber());
             }
-            session.setAttribute(env.getProperty("manager.id"), managerDAO.getByEmail(response.getEmail()));
+            session.setAttribute(env.getProperty("manager.id"), managerDAO.getByEmail(response.getEmail()).getId());
         } catch (OpenIdException e) {
             e.printStackTrace();
         }
