@@ -15,8 +15,10 @@
 
         <div class="starter-template">
             <h1>Loyalty program</h1>
-            <h2>Message: ${message}</h2>
+            <h2>${message}</h2>
         </div>
+
+        <img src="/resources/images/securenetshop2.png"/>
 
     </div>
      <jsp:include page="footer.jsp"/>
