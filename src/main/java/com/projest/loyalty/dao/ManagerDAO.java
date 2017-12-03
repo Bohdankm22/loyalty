@@ -50,7 +50,7 @@ public class ManagerDAO {
 
     public Manager getByEmail(String email) {
         try {
-            return executor.execQuery(String.format("select * from Manager where manager_id='%s'", email), result -> {
+            return executor.execQuery(String.format("select * from Manager where manager_email='%s'", email), result -> {
                 result.next();
                 return new Manager(result.getLong(1), result.getString(2),
                         result.getString(3), result.getString(4), result.getString(5));
