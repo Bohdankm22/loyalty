@@ -31,7 +31,11 @@
             <table>
                 <c:forEach items="${availOffers}" var="currentDataSetObj">
                     <tr>
-                        <td><c:out value="${currentDataSetObj}"/></td>
+                        <td><c:out value="${currentDataSetObj.name}"/></td>
+                        <td><c:out value="${currentDataSetObj.description}"/></td>
+                        <td><c:out value="${currentDataSetObj.type}"/></td>
+                        <td><c:out value="${currentDataSetObj.discount}"/></td>
+                        <td><c:out value="${currentDataSetObj.points}"/></td>
                     </tr>
                 </c:forEach>
             </table>
