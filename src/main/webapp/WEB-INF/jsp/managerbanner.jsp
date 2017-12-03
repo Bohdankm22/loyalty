@@ -7,7 +7,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="loyaltyPrograms">Loyalty Programs</a></li>
+                <li><a href="loyaltyProgram">Loyalty Program</a></li>
             </ul>
 
             <ul class="nav navbar-nav pull-right">
