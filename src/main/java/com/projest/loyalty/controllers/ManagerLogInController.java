@@ -39,6 +39,7 @@ public class ManagerLogInController {
         try {
             List<Scope> scopes = new ArrayList<Scope>();
             scopes.add(Scope.Accounting);
+            scopes.add(Scope.OpenIdAll);
             return new RedirectView(oauth2Config.prepareUrl(scopes, redirectUri, csrf), true, true, false);
         } catch (InvalidRequestException e) {
             logger.error("Exception calling connectToQuickbooks ", e);

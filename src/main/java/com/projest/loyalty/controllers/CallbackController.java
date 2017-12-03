@@ -69,7 +69,9 @@ public class CallbackController {
                 session.setAttribute("access_token", bearerTokenResponse.getAccessToken());
                 session.setAttribute("refresh_token", bearerTokenResponse.getRefreshToken());
 
-                saveManagerInfo(bearerTokenResponse, realmId, client);
+                Config.setProperty(Config.BASE_URL_QBO, env.getProperty("intuit.url"));
+
+                saveManagerInfo(session, bearerTokenResponse, client);
                 return "managerview";
             }
             logger.info("csrf token mismatch ");
@@ -79,28 +81,7 @@ public class CallbackController {
         return null;
     }
 
-    private void saveManagerInfo(BearerTokenResponse barel, String realmId, OAuth2PlatformClient client) {
-        try {
-
-            Config.setProperty(Config.BASE_URL_QBO, env.getProperty("OAuth2AppClientId"));
-
-            // Create OAuth object
-            OAuth2Authorizer oauth = new OAuth2Authorizer(barel.getAccessToken()); //set access token obtained from BearerTokenResponse
-
-            // Create context
-            Context context = new Context(oauth, ServiceType.QBO, realmId); //set realm id
-
-            // Create dataservice
-            DataService service = new DataService(context);
-
-
-            // Make the API call
-            String sql = "select * from companyinfo";
-            QueryResult queryResult = service.executeQuery(sql);
-        } catch (FMSException e) {
-
-        }
-
+    private void saveManagerInfo(HttpSession session, BearerTokenResponse barel, OAuth2PlatformClient client) {
         UserInfoResponse response = null;
         try {
             response = client.getUserInfo(barel.getAccessToken());
