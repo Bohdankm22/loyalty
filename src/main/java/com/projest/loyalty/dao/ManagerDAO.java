@@ -2,12 +2,14 @@ package com.projest.loyalty.dao;
 
 import com.projest.loyalty.database.Executor;
 import com.projest.loyalty.entity.Manager;
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class ManagerDAO {
 
+    private static final Logger logger = Logger.getLogger(ManagerDAO.class);
     private Executor executor;
 
     public ManagerDAO(Connection connection) {
@@ -44,5 +46,18 @@ public class ManagerDAO {
             return false;
         }
         return true;
+    }
+
+    public Manager getByEmail(String email) {
+        try {
+            return executor.execQuery(String.format("select * from Manager where manager_id='%s'", email), result -> {
+                result.next();
+                return new Manager(result.getLong(1), result.getString(2),
+                        result.getString(3), result.getString(4), result.getString(5));
+            });
+        } catch (SQLException e) {
+            logger.error("Failed to get sql query.", e);
+        }
+        return null;
     }
 }
