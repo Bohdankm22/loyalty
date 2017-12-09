@@ -1,8 +1,13 @@
 package com.projest.loyalty.controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.projest.loyalty.entity.User;
 import com.projest.loyalty.entity.UserRole;
 import com.projest.loyalty.repository.UserRepository;
+import com.projest.loyalty.utils.JSONPrettyPrint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
