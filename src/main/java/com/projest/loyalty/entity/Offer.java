@@ -98,12 +98,14 @@ public class Offer {
         }
 
         // Optional parameters
-        public void setDescription(String description) {
+        public OfferBuilder setDescription(String description) {
             this.description = description;
+            return this;
         }
 
-        public void setType(String type) {
+        public OfferBuilder setType(String type) {
             this.type = type;
+            return this;
         }
 
         public Offer build(){
