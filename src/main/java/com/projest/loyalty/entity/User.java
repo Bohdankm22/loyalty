@@ -18,6 +18,14 @@ public class User {
     public User() {
     }
 
+    private User(UserBuilder userBuilder) {
+        this.name = userBuilder.name;
+        this.surname = userBuilder.surname;
+        this.login = userBuilder.login;
+        this.password = userBuilder.password;
+        this.userRole = userBuilder.userRole;
+    }
+
     public long getId() {
         return id;
     }
@@ -76,14 +84,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", userRole=" + userRole +
                 '}';
-    }
-
-    private User(UserBuilder userBuilder) {
-        this.name = userBuilder.name;
-        this.surname = userBuilder.surname;
-        this.login = userBuilder.login;
-        this.password = userBuilder.password;
-        this.userRole = userBuilder.userRole;
     }
 
     //Builder Class

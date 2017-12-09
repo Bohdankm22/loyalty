@@ -12,10 +12,6 @@ public enum UserRole {
         this.role = role;
     }
 
-    public String getRole() {
-        return role;
-    }
-
     public static UserRole getUserRole(String role) {
         for (UserRole userRole : values()) {
             if (userRole.role.toUpperCase().equals(role.toUpperCase())) {
@@ -23,5 +19,9 @@ public enum UserRole {
             }
         }
         throw new UserRoleDoesNotExistException(role);
+    }
+
+    public String getRole() {
+        return role;
     }
 }
