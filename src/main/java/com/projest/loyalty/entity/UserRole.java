@@ -8,7 +8,7 @@ public enum UserRole {
 
     private String role;
 
-    private UserRole(String role) {
+    UserRole(String role) {
         this.role = role;
     }
 
@@ -18,7 +18,7 @@ public enum UserRole {
 
     public static UserRole getUserRole(String role) {
         for (UserRole userRole : values()) {
-            if (userRole.role.equals(role)) {
+            if (userRole.role.toUpperCase().equals(role.toUpperCase())) {
                 return userRole;
             }
         }
