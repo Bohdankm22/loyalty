@@ -15,8 +15,7 @@ public class Offer {
     private long discount;
     private long points;
 
-    public Offer() {
-    }
+    public Offer() { }
 
     public Offer(long id, String name, String description, String type, long discount, long points) {
         this.id = id;
@@ -73,5 +72,42 @@ public class Offer {
 
     public void setPoints(long points) {
         this.points = points;
+    }
+
+    private Offer(OfferBuilder builder) {
+        this.name = builder.name;
+        this.description = builder.description;
+        this.type = builder.type;
+        this.discount = builder.discount;
+        this.points = builder.points;
+    }
+
+    //Builder Class
+    public static class OfferBuilder {
+
+        private String name;
+        private String description;
+        private String type;
+        private long discount;
+        private long points;
+
+        public OfferBuilder(String name, long discount, long points) {
+            this.name = name;
+            this.discount = discount;
+            this.points = points;
+        }
+
+        // Optional parameters
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public Offer build(){
+            return new Offer(this);
+        }
     }
 }
