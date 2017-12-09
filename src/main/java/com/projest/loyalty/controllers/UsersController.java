@@ -30,9 +30,10 @@ public class UsersController {
                       @RequestParam(name = "surname", required = false) String surname) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
-        userRepository.save(new User.UserBuilder(login, password,
-                UserRole.getUserRole(role)).setName(name).setSurname(surname).build());
-        return "Saved";
+        User user = new User.UserBuilder(login, password,
+                UserRole.getUserRole(role)).setName(name).setSurname(surname).build();
+        userRepository.save(user);
+        return String.format("Saved user %s", user);
     }
 
     @GetMapping(path = "/all")
