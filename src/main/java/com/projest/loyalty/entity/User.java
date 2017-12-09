@@ -66,6 +66,18 @@ public class User {
         this.userRole = userRole;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", userRole=" + userRole +
+                '}';
+    }
+
     private User(UserBuilder userBuilder) {
         this.name = userBuilder.name;
         this.surname = userBuilder.surname;
