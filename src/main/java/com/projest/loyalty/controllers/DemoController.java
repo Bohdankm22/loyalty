@@ -23,12 +23,9 @@ public class DemoController {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
-        Offer offer = new Offer();
-        offer.setName("Custom offer");
-        offer.setDescription("Custom description");
-        offer.setDiscount(12);
-        offer.setPoints(120);
-        offerRepository.save(offer);
+        offerRepository.save(new Offer.OfferBuilder("Cust name", 12, 120).
+                setDescription("Custom description").
+                setType("Custom type").build());
         return "Saved";
     }
 
