@@ -18,7 +18,7 @@
     <div class="starter-template">
         <h1>Login as a Customer</h1>
         <div class="panel-body">
-            <form accept-charset="UTF-8" role="form" method="post" action="loginCustomer">
+            <form accept-charset="UTF-8" role="form" method="post" action="loginUser">
                 <fieldset>
                     <div class="form-group">
                         <input class="form-control" placeholder="Login" name="login" type="text">
@@ -39,17 +39,6 @@
 
 </div>
 
-<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-    function launchPopup(path) {
-        var win;
-        var checkConnect;
-        var parameters = "location=1,width=800,height=650";
-        parameters += ",left=" + (screen.width - 800) / 2 + ",top=" + (screen.height - 650) / 2;
-        // Launch Popup
-        win = window.open(path, 'connectPopup', parameters);
-    }
-</script>
 </body>
 
 </html>

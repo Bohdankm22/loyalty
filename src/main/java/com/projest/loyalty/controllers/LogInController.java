@@ -1,5 +1,8 @@
 package com.projest.loyalty.controllers;
 
+import com.projest.loyalty.entity.User;
+import com.projest.loyalty.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,16 +14,24 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LogInController {
 
+    private final UserRepository userRepository;
+
+    @Autowired
+    public LogInController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     @RequestMapping("/login")
     public String login() {
         return "login";
     }
 
-    @RequestMapping(value = "/loginCustomer", method = RequestMethod.POST)
-    public String submit(@RequestParam("login") String login, @RequestParam("password") String password, Model model, HttpSession session) {
-        /*if (customer == null) {
+    @RequestMapping(value = "/loginUser", method = RequestMethod.POST)
+    public String submit(@RequestParam("login") String login, @RequestParam("password") String password) {
+        User user = userRepository.findByLoginPassword(login, password);
+        if (user == null) {
             return "/error";
-        }*/
+        }
 
 
         return "customerView";
