@@ -4,7 +4,9 @@ import com.projest.loyalty.database.Executor;
 import com.projest.loyalty.entity.Manager;
 import com.projest.loyalty.entity.Offer;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,12 +17,15 @@ public class OfferDAO {
     private static final Logger logger = Logger.getLogger(OfferDAO.class);
     private Executor executor;
     private List<Offer> offers;
+    @Autowired
+    private DataSource source;
 
     public OfferDAO(Connection connection) {
         this.executor = new Executor(connection);
     }
 
     public Manager get(long id) throws SQLException {
+        source.getConnection();
         return executor.execQuery(String.format("select * from Manager where manager_id=%d", id), result -> {
             result.next();
             return new Manager(result.getLong(1), result.getString(2),

@@ -5,6 +5,8 @@ import com.projest.loyalty.dao.OfferDAO;
 import com.projest.loyalty.database.DBService;
 import com.projest.loyalty.entity.Customer;
 import com.projest.loyalty.entity.Offer;
+import com.projest.loyalty.repository.OfferRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,9 @@ import java.util.List;
 
 @Controller
 public class LogInController {
+
+    @Autowired
+    private OfferRepository offerRepository;
 
     private List<Offer> availOffers = new ArrayList<>();
     @RequestMapping("/login")
@@ -31,6 +36,7 @@ public class LogInController {
             return "/error";
         }
         OfferDAO offerDAO = new OfferDAO(DBService.getMysqlConnection());
+
         availOffers = offerDAO.getOffers();
         session.setAttribute("username", customer.getFirstName());
         model.addAttribute("customerFirstName", customer.getFirstName());

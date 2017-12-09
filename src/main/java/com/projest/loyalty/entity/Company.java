@@ -1,9 +1,17 @@
 package com.projest.loyalty.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "COMPANIES")
 public class Company {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+
+    public Company() { }
 
     public Company(long id, String name) {
         this.id = id;

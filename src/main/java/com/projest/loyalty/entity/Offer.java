@@ -1,13 +1,22 @@
 package com.projest.loyalty.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Offer")
 public class Offer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
     private String description;
     private String type;
     private long discount;
     private long points;
+
+    public Offer() {
+    }
 
     public Offer(long id, String name, String description, String type, long discount, long points) {
         this.id = id;
