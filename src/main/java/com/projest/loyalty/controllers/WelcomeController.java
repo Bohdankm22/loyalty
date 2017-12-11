@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Map;
 
 @Controller
+@RequestMapping(path = "/")
 public class WelcomeController {
 
     // inject via application.properties
