@@ -4,11 +4,10 @@ import com.projest.loyalty.entity.User;
 import com.projest.loyalty.entity.UserRole;
 import com.projest.loyalty.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/user")
+@RequestMapping(path = "/api/user")
 public class UsersController {
 
     private final UserRepository userRepository;
