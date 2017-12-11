@@ -1,7 +1,6 @@
 package com.projest.loyalty.repository;
 
 import com.projest.loyalty.entity.User;
-import com.projest.loyalty.entity.UserRole;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -15,5 +14,5 @@ public interface UserRepository extends CrudRepository<User, Long> {
     User findByLoginPassword(@Param("login") String login, @Param("password") String password);
 
     @Query("from User where user_role=:role")
-    Iterable<User> findByRole(UserRole role);
+    Iterable<User> findByRole(@Param("role") int role);
 }
