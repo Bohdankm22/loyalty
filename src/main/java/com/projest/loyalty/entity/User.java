@@ -16,6 +16,7 @@ public class User {
     private String login;
     private String password;
     private UserRole userRole;
+    private long annualSalary;
 
     public User() {
     }
@@ -26,6 +27,7 @@ public class User {
         this.login = userBuilder.login;
         this.password = userBuilder.password;
         this.userRole = userBuilder.userRole;
+        this.annualSalary = userBuilder.annualSalary;
     }
 
     public long getId() {
@@ -76,6 +78,14 @@ public class User {
         this.userRole = userRole;
     }
 
+    public long getAnnualSalary() {
+        return annualSalary;
+    }
+
+    public void setAnnualSalary(long annualSalary) {
+        this.annualSalary = annualSalary;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -85,6 +95,7 @@ public class User {
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", userRole=" + userRole +
+                ", annualSalary=" + annualSalary +
                 '}';
     }
 
@@ -96,6 +107,7 @@ public class User {
         private String login;
         private String password;
         private UserRole userRole;
+        private long annualSalary;
 
         public UserBuilder(String login, String password, UserRole userRole) {
             this.login = login;
@@ -111,6 +123,11 @@ public class User {
 
         public UserBuilder setSurname(String surname) {
             this.surname = surname;
+            return this;
+        }
+
+        public UserBuilder setAnnualSalary(long annualSalary) {
+            this.annualSalary = annualSalary;
             return this;
         }
 
