@@ -29,11 +29,24 @@ public class LogInController {
     @RequestMapping(value = "/loginUser", method = RequestMethod.POST)
     public String submit(@RequestParam("login") String login, @RequestParam("password") String password) {
         User user = userRepository.findByLoginPassword(login, password);
-        if (user == null) {
-            return "/error";
+        String result = "/error";
+        switch (user.getUserRole()) {
+            case HR:
+                result = "hrview";
+                break;
+            case ADMIN:
+                result = "adminview";
+                break;
+            case MANAGER:
+                result = "managerview";
+                break;
+            case EMPLOYEE:
+                result = "employeeview";
+                break;
+            case ACCOUNTANT:
+                result = "accountantview";
+                break;
         }
-
-
-        return "customerView";
+        return result;
     }
 }
