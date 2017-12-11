@@ -44,7 +44,7 @@ public class LogInController {
                 result = "adminview";
                 break;
             case MANAGER:
-                model.put("employees", userRepository.findByRole(UserRole.EMPLOYEE));
+                model.put("employees", userRepository.findByRole(UserRole.EMPLOYEE.ordinal()));
                 result = "managerview";
                 break;
             case EMPLOYEE:
