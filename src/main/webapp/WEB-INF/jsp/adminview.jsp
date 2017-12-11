@@ -27,6 +27,24 @@
             <h1>This is a admin view</h1>
         </div>
 
+        <h3>Here is a list of all users:</h3>
+
+        <table class="table table-bordered table-responsive">
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Role</th>
+                <th></th>
+            </tr>
+            <c:forEach items="${users}" var="currentDataSetObj">
+                <tr>
+                    <td><c:out value="${currentDataSetObj.name}"/></td>
+                    <td><c:out value="${currentDataSetObj.surname}"/></td>
+                    <td><c:out value="${currentDataSetObj.userRole}"/></td>
+                    <td><button class="button" name="itemId" value="${currentDataSetObj.id}"><b>Redeem</b></button></td>
+                </tr>
+            </c:forEach>
+        </table>
     </div>
 
 
