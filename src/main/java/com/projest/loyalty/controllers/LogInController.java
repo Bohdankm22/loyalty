@@ -1,6 +1,7 @@
 package com.projest.loyalty.controllers;
 
 import com.projest.loyalty.entity.User;
+import com.projest.loyalty.entity.UserRole;
 import com.projest.loyalty.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,10 +40,11 @@ public class LogInController {
                 result = "hrview";
                 break;
             case ADMIN:
+                model.put("users", userRepository.findAll());
                 result = "adminview";
                 break;
             case MANAGER:
-                model.put("employees", userRepository.findAll());
+                model.put("employees", userRepository.findByRole(UserRole.EMPLOYEE));
                 result = "managerview";
                 break;
             case EMPLOYEE:
