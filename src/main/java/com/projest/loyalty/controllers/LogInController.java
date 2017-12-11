@@ -51,6 +51,7 @@ public class LogInController {
                 result = "employeeview";
                 break;
             case ACCOUNTANT:
+                model.put("emp", userRepository.findAll());
                 result = "accountantview";
                 break;
         }
