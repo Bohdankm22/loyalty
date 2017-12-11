@@ -12,7 +12,7 @@
             </ul>
 
             <ul class="nav navbar-nav pull-right">
-                <li class="">Username</li>
+                <li class=""><a>Welcome ${login}</a></li>
                 <li class=""><a href="logout">Logout</a></li>
             </ul>
         </div>
