@@ -19,12 +19,12 @@
 </head>
 <body>
 
-    <jsp:include page="managerbanner.jsp" />
+    <jsp:include page="accountantbanner.jsp" />
 
     <div class="container">
 
         <div class="starter-template">
-            <h1>This is a manager view</h1>
+            <h1>This is a accountant view</h1>
         </div>
 
     </div>
