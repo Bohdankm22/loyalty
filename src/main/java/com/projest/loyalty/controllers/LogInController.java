@@ -2,6 +2,7 @@ package com.projest.loyalty.controllers;
 
 import com.projest.loyalty.entity.User;
 import com.projest.loyalty.entity.UserRole;
+import com.projest.loyalty.repository.TaskRepository;
 import com.projest.loyalty.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,6 +50,7 @@ public class LogInController {
                 break;
             case EMPLOYEE:
                 result = "employeeview";
+                model.put("tasks", user.getTasks());
                 break;
             case ACCOUNTANT:
                 model.put("emp", userRepository.findAll());
