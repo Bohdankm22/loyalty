@@ -120,15 +120,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", userRole=" + userRole +
-                ", annualSalary=" + annualSalary +
-                '}';
+        return name + " " + surname;
     }
 
     //Builder Class
