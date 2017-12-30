@@ -1,4 +1,4 @@
-# Inserting user data
+# Inserting users data
 INSERT INTO loyalty.user (login, name, password, surname, user_role, annual_salary) VALUES ('bohdansh', 'Bohdan', '123', 'Shar', 3, 10000);
 INSERT INTO loyalty.user (login, name, password, surname, user_role, annual_salary) VALUES ('invaniv', 'Ivan', '222', 'Ivanov', 2, 10000);
 INSERT INTO loyalty.user (login, name, password, surname, user_role, annual_salary) VALUES ('petr222', 'Petro', '123444', 'Petrovich', 2, 10000);
@@ -41,3 +41,18 @@ INSERT INTO loyalty.user (login, name, password, surname, user_role, annual_sala
 INSERT INTO loyalty.user (login, name, password, surname, user_role, annual_salary) VALUES ('gerg', 'Georgy', 'ivan', 'Nicolaevich', 0, 36345);
 INSERT INTO loyalty.user (login, name, password, surname, user_role, annual_salary) VALUES ('drv', 'Demitri', 'ivan', 'Nicolaevich', 0, 67567);
 INSERT INTO loyalty.user (login, name, password, surname, user_role, annual_salary) VALUES ('kiz', 'Kizil', 'ivan', 'Nicolaevich', 0, 34233);
+
+# Inserting tasks data
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create db for production.', '2017-12-30 18:03:49', '2017-12-30 13:03:54', 'Create DB');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create schema for production.', '2017-12-17 13:03:49', '2017-12-30 13:03:54', 'Create Schema');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Adjust db for production.', '2017-12-13 13:03:49', '2017-12-30 13:03:54', 'Adjust DB');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Manage db for production.', '2017-12-15 13:03:49', '2017-12-30 13:03:54', 'Manage DB');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Manipulate data for db for production.', '2017-12-23 13:03:49', '2017-12-30 13:03:54', 'Manipulate data for DB');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create data in db for production.', '2017-12-26 13:03:49', '2017-12-30 13:03:54', 'Create data in DB');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Retrieve statistics from db for production.', '2017-11-30 13:03:49', '2017-12-30 13:03:54', 'Retrieve statistics');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create db for production.', '2017-12-30 13:03:49', '2017-12-30 13:03:54', 'Create DB');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create beans for production.', '2017-12-26 13:03:49', '2017-12-30 13:03:54', 'Create beans');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create accountant view for production.', '2017-12-31 13:03:49', '2017-12-30 13:03:54', 'Create Accountant view');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create manager view for production.', '2017-12-23 13:03:49', '2017-12-30 13:03:54', 'Create manager view');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create employee view for production.', '2017-12-22 13:03:49', '2017-12-30 13:03:54', 'Create employee view');
+INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create admin view for production.', '2017-12-21 13:03:49', '2017-12-30 13:03:54', 'Create admin view');
