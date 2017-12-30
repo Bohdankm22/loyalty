@@ -1,6 +1,10 @@
 package com.projest.loyalty.entity;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "User")
@@ -18,6 +22,13 @@ public class User {
     private String password;
     private UserRole userRole;
     private long annualSalary;
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "user_tasks",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "task_id")})
+    private Set<Task> tasks = new HashSet<>();
 
     public User() {
     }
@@ -85,6 +96,14 @@ public class User {
 
     public void setAnnualSalary(long annualSalary) {
         this.annualSalary = annualSalary;
+    }
+
+    public Set<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(Set<Task> tasks) {
+        this.tasks = tasks;
     }
 
     @Override
