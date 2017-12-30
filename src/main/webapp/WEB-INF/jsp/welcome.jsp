@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
-    <title>Loyalty</title>
+    <title>HR Portal</title>
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 </head>
@@ -14,11 +14,10 @@
     <div class="container">
 
         <div class="starter-template">
-            <h1>Loyalty program</h1>
-            <h2>${message}</h2>
+            <h1>${message}</h1>
         </div>
 
-        <img src="/resources/images/securenetshop2.png"/>
+        <img src="/resources/images/hr-pic.jpg"/>
 
     </div>
      <jsp:include page="footer.jsp"/>
