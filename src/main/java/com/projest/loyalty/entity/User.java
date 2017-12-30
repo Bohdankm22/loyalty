@@ -14,22 +14,22 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    @JsonView(Views.Users.class)
+    @JsonView({Views.Users.class, Views.Task.class})
     private long id;
 
-    @JsonView({Views.User.class, Views.Task.class})
+    @JsonView({Views.User.class, Views.UserTask.class, Views.Task.class})
     private String name;
 
-    @JsonView({Views.User.class, Views.Task.class})
+    @JsonView({Views.User.class, Views.UserTask.class, Views.Task.class})
     private String surname;
 
     @Column(unique = true)
-    @JsonView({Views.User.class, Views.Task.class})
+    @JsonView({Views.User.class, Views.UserTask.class})
     private String login;
 
     private String password;
 
-    @JsonView({Views.User.class, Views.Task.class})
+    @JsonView({Views.User.class, Views.UserTask.class, Views.Task.class})
     private UserRole userRole;
 
     private long annualSalary;
@@ -39,7 +39,7 @@ public class User {
     @JoinTable(name = "user_tasks",
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "task_id")})
-    @JsonView(Views.Task.class)
+    @JsonView(Views.UserTask.class)
     private Set<Task> tasks = new HashSet<>();
 
     public User() {
