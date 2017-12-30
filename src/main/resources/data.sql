@@ -59,16 +59,16 @@ INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES
 
 
 # Inserting tasks data
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 1);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 2);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 3);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 4);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 5);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 6);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 7);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 8);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 9);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 10);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 11);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 12);
-INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 1);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (10, 1);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (5, 2);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (5, 3);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (5, 4);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (5, 5);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (5, 6);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (10, 7);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (10, 8);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (10, 9);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (10, 10);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (10, 11);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (10, 12);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (5, 1);
