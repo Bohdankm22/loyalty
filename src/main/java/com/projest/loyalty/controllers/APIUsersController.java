@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/api/users")
-public class UsersController {
+@RequestMapping(path = "/api")
+public class APIUsersController {
 
     private final UserRepository userRepository;
 
     @Autowired
-    public UsersController(UserRepository userRepository) {
+    public APIUsersController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -32,8 +32,13 @@ public class UsersController {
         return String.format("Saved user %s", user);
     }
 
-    @GetMapping(path = "/all")
+    @RequestMapping(path = "/user/", method = RequestMethod.GET)
     public Iterable<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @RequestMapping(path = "/user/{id}", method = RequestMethod.GET)
+    public User getUser(@PathVariable("id") long id) {
+        return userRepository.findOne(id);
     }
 }
