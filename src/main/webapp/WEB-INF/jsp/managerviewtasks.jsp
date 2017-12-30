@@ -40,7 +40,7 @@
                 <td><c:out value="${currentDataSetObj.lastUpdatedAt}"/></td>
                 <td><c:out value="${currentDataSetObj.users}"/></td>
                 <td>
-                    <button class="button" name="itemId" value="${currentDataSetObj.id}"><b>Remove</b></button>
+                    <button class="button" name="itemId" value="${currentDataSetObj.id}"><b>Edit</b></button>
                 </td>
             </tr>
         </c:forEach>
