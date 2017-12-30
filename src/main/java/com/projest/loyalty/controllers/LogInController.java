@@ -35,6 +35,7 @@ public class LogInController {
             return "/error";
         }
         String result = "/error";
+        model.put("user", user);
         model.put("login", user.getName() + " " + user.getSurname());
         switch (user.getUserRole()) {
             case HR:
