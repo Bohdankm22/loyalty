@@ -22,8 +22,27 @@
         <h1>This is a manager view</h1>
     </div>
 
-
     <h3>Here is a list of tasks:</h3>
+    <table class="table table-bordered table-responsive">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date Posted</th>
+            <th>Last Updated</th>
+            <th></th>
+        </tr>
+        <c:forEach items="${tasks}" var="currentDataSetObj">
+            <tr>
+                <td><c:out value="${currentDataSetObj.title}"/></td>
+                <td><c:out value="${currentDataSetObj.description}"/></td>
+                <td><c:out value="${currentDataSetObj.postedAt}"/></td>
+                <td><c:out value="${currentDataSetObj.lastUpdatedAt}"/></td>
+                <td>
+                    <button class="button" name="itemId" value="${currentDataSetObj.id}"><b>Remove</b></button>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
 
 </div>
 
