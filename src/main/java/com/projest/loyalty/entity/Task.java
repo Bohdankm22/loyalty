@@ -1,5 +1,8 @@
 package com.projest.loyalty.entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.projest.loyalty.entity.view.Views;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -14,24 +17,29 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "task_id")
+    @JsonView(Views.Task.class)
     private long id;
 
     @NotNull
     @Size(max = 100)
+    @JsonView(Views.Task.class)
     private String title;
 
     @NotNull
     @Size(max = 250)
+    @JsonView(Views.Task.class)
     private String description;
 
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "posted_at")
+    @JsonView(Views.Task.class)
     private Date postedAt = new Date();
 
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "last_updated_at")
+    @JsonView(Views.Task.class)
     private Date lastUpdatedAt = new Date();
 
     @ManyToMany(fetch = FetchType.LAZY,
