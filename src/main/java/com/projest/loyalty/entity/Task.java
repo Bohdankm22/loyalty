@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "task")
@@ -11,6 +13,7 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "task_id")
     private long id;
 
     @NotNull
@@ -31,16 +34,19 @@ public class Task {
     @Column(name = "last_updated_at")
     private Date lastUpdatedAt = new Date();
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+            mappedBy = "tasks")
+    private Set<User> users = new HashSet<>();
 
-    public Task(String title, String description, Date postedAt, Date lastUpdatedAt, User user) {
+    public Task() {
+    }
+
+    public Task(String title, String description, Date postedAt, Date lastUpdatedAt) {
         this.title = title;
         this.description = description;
         this.postedAt = postedAt;
         this.lastUpdatedAt = lastUpdatedAt;
-        this.user = user;
     }
 
     public long getId() {
@@ -83,12 +89,12 @@ public class Task {
         this.lastUpdatedAt = lastUpdatedAt;
     }
 
-    public User getUser() {
-        return user;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     @Override
@@ -99,7 +105,6 @@ public class Task {
                 ", description='" + description + '\'' +
                 ", postedAt=" + postedAt +
                 ", lastUpdatedAt=" + lastUpdatedAt +
-                ", user=" + user +
                 '}';
     }
 
@@ -114,9 +119,7 @@ public class Task {
         if (title != null ? !title.equals(task.title) : task.title != null) return false;
         if (description != null ? !description.equals(task.description) : task.description != null) return false;
         if (postedAt != null ? !postedAt.equals(task.postedAt) : task.postedAt != null) return false;
-        if (lastUpdatedAt != null ? !lastUpdatedAt.equals(task.lastUpdatedAt) : task.lastUpdatedAt != null)
-            return false;
-        return user != null ? user.equals(task.user) : task.user == null;
+        return lastUpdatedAt != null ? lastUpdatedAt.equals(task.lastUpdatedAt) : task.lastUpdatedAt == null;
     }
 
     @Override
@@ -126,7 +129,6 @@ public class Task {
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (postedAt != null ? postedAt.hashCode() : 0);
         result = 31 * result + (lastUpdatedAt != null ? lastUpdatedAt.hashCode() : 0);
-        result = 31 * result + (user != null ? user.hashCode() : 0);
         return result;
     }
 }
