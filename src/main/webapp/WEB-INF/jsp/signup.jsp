@@ -16,7 +16,7 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>Sing up as a Customer</h1>
+        <h1>Add a user</h1>
         <div class="panel-body">
             <form accept-charset="UTF-8" role="form" method="post" action="singUpCustomer">
                 <fieldset>
@@ -31,10 +31,6 @@
                     <div class="form-group">
                         <label class="control-label" for="first_name">First name</label>
                         <input class="form-control" name="first_name" id="first_name" type="text" value="">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="middle_name">Middle name</label>
-                        <input class="form-control" name="middle_name" id="middle_name" type="text" value="">
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="last_name">Last name</label>
