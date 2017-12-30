@@ -1,6 +1,7 @@
 package com.projest.loyalty.entity;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.projest.loyalty.entity.view.Views;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -13,14 +14,24 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
+    @JsonView(Views.Users.class)
     private long id;
+
+    @JsonView({Views.User.class, Views.Task.class})
     private String name;
+
+    @JsonView({Views.User.class, Views.Task.class})
     private String surname;
 
     @Column(unique = true)
+    @JsonView({Views.User.class, Views.Task.class})
     private String login;
+
     private String password;
+
+    @JsonView({Views.User.class, Views.Task.class})
     private UserRole userRole;
+
     private long annualSalary;
 
     @ManyToMany(fetch = FetchType.LAZY,
@@ -28,6 +39,7 @@ public class User {
     @JoinTable(name = "user_tasks",
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "task_id")})
+    @JsonView(Views.Task.class)
     private Set<Task> tasks = new HashSet<>();
 
     public User() {
