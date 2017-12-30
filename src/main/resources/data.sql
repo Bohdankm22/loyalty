@@ -56,3 +56,19 @@ INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES
 INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create manager view for production.', '2017-12-23 13:03:49', '2017-12-30 13:03:54', 'Create manager view');
 INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create employee view for production.', '2017-12-22 13:03:49', '2017-12-30 13:03:54', 'Create employee view');
 INSERT INTO loyalty.task (description, last_updated_at, posted_at, title) VALUES ('Create admin view for production.', '2017-12-21 13:03:49', '2017-12-30 13:03:54', 'Create admin view');
+
+
+# Inserting tasks data
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 1);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 2);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 3);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 4);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 5);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 6);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 7);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 8);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 9);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 10);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 11);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (1, 12);
+INSERT INTO loyalty.user_tasks (user_id, task_id) VALUES (6, 1);
