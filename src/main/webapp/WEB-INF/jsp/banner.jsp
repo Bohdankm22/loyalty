@@ -13,7 +13,6 @@
 
         <ul class="nav navbar-nav pull-right">
             <li class=""><a href="login">Login</a></li>
-            <li class=""><a href="signup">Sign up</a></li>
         </ul>
     </div>
 </nav>
