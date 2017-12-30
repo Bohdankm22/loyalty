@@ -16,8 +16,9 @@
     <div class="container">
 
         <div class="starter-template">
-            <h1>Loyalty program</h1>
-            <h2>Message: ${message}</h2>
+            <h1>HR portal project</h1>
+            <br />
+            <h2>${message}</h2>
         </div>
 
     </div>
