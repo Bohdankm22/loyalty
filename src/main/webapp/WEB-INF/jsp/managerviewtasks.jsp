@@ -29,6 +29,7 @@
             <th>Description</th>
             <th>Date Posted</th>
             <th>Last Updated</th>
+            <th>Assigned employees</th>
             <th></th>
         </tr>
         <c:forEach items="${tasks}" var="currentDataSetObj">
@@ -37,6 +38,7 @@
                 <td><c:out value="${currentDataSetObj.description}"/></td>
                 <td><c:out value="${currentDataSetObj.postedAt}"/></td>
                 <td><c:out value="${currentDataSetObj.lastUpdatedAt}"/></td>
+                <td><c:out value="${currentDataSetObj.users}"/></td>
                 <td>
                     <button class="button" name="itemId" value="${currentDataSetObj.id}"><b>Remove</b></button>
                 </td>
