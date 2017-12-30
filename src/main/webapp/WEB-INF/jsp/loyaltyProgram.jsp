@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        if(window.opener) {
+        if (window.opener) {
             window.opener.location.href = '/managerview'
             window.close()
         }
@@ -19,17 +19,17 @@
 </head>
 <body>
 
-    <jsp:include page="managerbanner.jsp" />
+<jsp:include page="managerbanner.jsp"/>
 
-    <div class="container">
+<div class="container">
 
-        <div class="starter-template">
-            <h1>Loyalty program</h1>
-            <h2>Program name: ${programName}</h2>
-            <h2>Company name: ${companyName}</h2>
-        </div>
-
+    <div class="starter-template">
+        <h1>Loyalty program</h1>
+        <h2>Program name: ${programName}</h2>
+        <h2>Company name: ${companyName}</h2>
     </div>
+
+</div>
 
 
 </body>

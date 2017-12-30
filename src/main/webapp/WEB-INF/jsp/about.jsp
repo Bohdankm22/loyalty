@@ -11,19 +11,19 @@
 </head>
 <body>
 
-    <jsp:include page="banner.jsp" />
+<jsp:include page="banner.jsp"/>
 
-    <div class="container">
+<div class="container">
 
-        <div class="starter-template">
-            <h1>HR portal project</h1>
-            <br />
-            <h2>${message}</h2>
-        </div>
-
+    <div class="starter-template">
+        <h1>HR portal project</h1>
+        <br/>
+        <h2>${message}</h2>
     </div>
 
-    <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</div>
+
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 

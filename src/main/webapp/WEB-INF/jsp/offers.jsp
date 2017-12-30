@@ -63,7 +63,10 @@
                             <td><c:out value="${currentDataSetObj.name}"/></td>
                             <td><c:out value="${currentDataSetObj.description}"/></td>
                             <td><c:out value="${currentDataSetObj.type}"/></td>
-                            <td><button class="button" name="itemId" value="${currentDataSetObj.id}">Create offer</button></td>
+                            <td>
+                                <button class="button" name="itemId" value="${currentDataSetObj.id}">Create offer
+                                </button>
+                            </td>
                         </tr>
                     </c:forEach>
                 </table>

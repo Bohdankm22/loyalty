@@ -13,17 +13,17 @@
 </head>
 <body>
 
-    <jsp:include page="hrbanner.jsp" />
+<jsp:include page="hrbanner.jsp"/>
 
-    <div class="container">
+<div class="container">
 
-        <div class="starter-template">
-            <h1>This is a hr view</h1>
-        </div>
-
+    <div class="starter-template">
+        <h1>This is a hr view</h1>
     </div>
 
-    <jsp:include page="footer.jsp"/>
+</div>
+
+<jsp:include page="footer.jsp"/>
 
 </body>
 

@@ -9,18 +9,18 @@
 </head>
 <body>
 
-    <jsp:include page="banner.jsp" />
+<jsp:include page="banner.jsp"/>
 
-    <div class="container">
+<div class="container">
 
-        <div class="starter-template">
-            <h1>The was an error with your request.</h1>
-            <h2>Please try again later.</h2>
-        </div>
-
+    <div class="starter-template">
+        <h1>The was an error with your request.</h1>
+        <h2>Please try again later.</h2>
     </div>
-     <jsp:include page="footer.jsp"/>
-    <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</div>
+<jsp:include page="footer.jsp"/>
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 

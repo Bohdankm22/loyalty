@@ -9,19 +9,19 @@
 </head>
 <body>
 
-    <jsp:include page="banner.jsp" />
+<jsp:include page="banner.jsp"/>
 
-    <div class="container">
+<div class="container">
 
-        <div class="starter-template">
-            <h1>${message}</h1>
-        </div>
-
-        <img src="/resources/images/hr-pic.jpg"/>
-
+    <div class="starter-template">
+        <h1>${message}</h1>
     </div>
-    <jsp:include page="footer.jsp"/>
-    <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <img src="/resources/images/hr-pic.jpg"/>
+
+</div>
+<jsp:include page="footer.jsp"/>
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 
