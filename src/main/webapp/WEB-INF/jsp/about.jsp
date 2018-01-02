@@ -4,10 +4,7 @@
 <html lang="en">
 <head>
     <title>HR Portal</title>
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-
-    <spring:url value="/css/main.css" var="springCss"/>
-    <link href="${springCss}" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -23,6 +20,7 @@
 
 </div>
 
+<jsp:include page="footer.jsp"/>
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>

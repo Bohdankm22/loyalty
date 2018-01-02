@@ -15,4 +15,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     @Query("from User where user_role=:role")
     Iterable<User> findByRole(@Param("role") int role);
+
+    @Query("from User where login=:login")
+    User findByLogin(String login);
 }

@@ -1,5 +1,7 @@
 package com.projest.loyalty.controllers;
 
+import com.projest.loyalty.auth.service.SecurityService;
+import com.projest.loyalty.auth.validator.UserValidator;
 import com.projest.loyalty.entity.User;
 import com.projest.loyalty.entity.UserRole;
 import com.projest.loyalty.repository.UserRepository;
@@ -17,13 +19,17 @@ import java.util.Map;
 public class LogInController {
 
     private final UserRepository userRepository;
+    private final SecurityService securityService;
+    private final UserValidator userValidator;
 
     @Autowired
-    public LogInController(UserRepository userRepository) {
+    public LogInController(UserRepository userRepository, SecurityService securityService, UserValidator userValidator) {
         this.userRepository = userRepository;
+        this.securityService = securityService;
+        this.userValidator = userValidator;
     }
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
         return "login";
     }
@@ -31,10 +37,12 @@ public class LogInController {
     @RequestMapping(value = "/loginUser", method = RequestMethod.POST)
     public String submit(@RequestParam("login") String login, @RequestParam("password") String password,
                          Map<String, Object> model, HttpSession session) {
-        User user = userRepository.findByLoginPassword(login, password);
-        if (user == null) {
+
+        securityService.autologin(login, password);
+        if (!securityService.findLoggedInUsername().equals(login)) {
             return "/error";
         }
+        User user = userRepository.findByLogin(login);
         String result = "/error";
         session.setAttribute("user", user.getId());
 
