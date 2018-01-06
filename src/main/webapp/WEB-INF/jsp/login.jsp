@@ -18,6 +18,13 @@
     <div class="starter-template">
         <h1>Login as a Customer</h1>
         <div class="panel-body">
+            <br>
+                <%
+                    if(null != request.getAttribute("errorMessage")) {
+                        out.println(request.getAttribute("errorMessage"));
+                    }
+                %>
+            </br>
             <form accept-charset="UTF-8" role="form" method="post" action="loginUser">
                 <fieldset>
                     <div class="form-group">
