@@ -7,9 +7,6 @@
         </a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li><a href="offers">Offers</a></li>
-        </ul>
 
         <ul class="nav navbar-nav pull-right">
             <li class=""><a>Welcome ${login}</a></li>
