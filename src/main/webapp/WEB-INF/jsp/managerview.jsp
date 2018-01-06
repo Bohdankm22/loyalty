@@ -38,7 +38,7 @@
                 <td><c:out value="${currentDataSetObj.surname}"/></td>
                 <td><c:out value="${currentDataSetObj.userRole}"/></td>
                 <td>
-                    <button class="button" name="itemId" value="${currentDataSetObj.id}"><b>Redeem</b></button>
+                    <button class="button" name="itemId" value="${currentDataSetObj.id}"><b>Assign Task</b></button>
                 </td>
             </tr>
         </c:forEach>
