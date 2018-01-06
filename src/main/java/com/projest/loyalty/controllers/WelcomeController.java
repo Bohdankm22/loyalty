@@ -19,4 +19,10 @@ public class WelcomeController {
         model.put("message", this.message);
         return "welcome";
     }
+
+    @RequestMapping("/welcome")
+    public String welcomeMsg(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "welcome";
+    }
 }
