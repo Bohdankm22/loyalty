@@ -19,9 +19,27 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>This is a hr view</h1>
+        <h1>This is a HR view</h1>
     </div>
 
+    <h3>Here is a list of all employees salaries:</h3>
+
+    <table class="table table-bordered table-responsive">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Role</th>
+            <th>Annual Salary</th>
+        </tr>
+        <c:forEach items="${emp}" var="currentDataSetObj">
+            <tr>
+                <td><c:out value="${currentDataSetObj.name}"/></td>
+                <td><c:out value="${currentDataSetObj.surname}"/></td>
+                <td><c:out value="${currentDataSetObj.userRole}"/></td>
+                <td>$<c:out value="${currentDataSetObj.annualSalary}"/></td>
+            </tr>
+        </c:forEach>
+    </table>
 </div>
 
 </body>
