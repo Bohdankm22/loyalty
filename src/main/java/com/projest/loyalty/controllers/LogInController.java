@@ -59,7 +59,7 @@ public class LogInController {
                 model.put("tasks", user.getTasks());
                 break;
             case ACCOUNTANT:
-                model.put("emp", userRepository.findAll());
+                model.put("employees", userRepository.findAll());
                 result = "accountantview";
                 break;
         }

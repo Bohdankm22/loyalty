@@ -22,21 +22,23 @@
         <h1>This is a HR view for ${login}</h1>
     </div>
 
-    <h3>Here is a list of all employees salaries:</h3>
+    <h3>Here is a list of employees:</h3>
 
     <table class="table table-bordered table-responsive">
         <tr>
             <th>Name</th>
             <th>Surname</th>
             <th>Role</th>
-            <th>Annual Salary</th>
+            <th></th>
         </tr>
-        <c:forEach items="${emp}" var="currentDataSetObj">
+        <c:forEach items="${employees}" var="currentDataSetObj">
             <tr>
                 <td><c:out value="${currentDataSetObj.name}"/></td>
                 <td><c:out value="${currentDataSetObj.surname}"/></td>
                 <td><c:out value="${currentDataSetObj.userRole}"/></td>
-                <td>$<c:out value="${currentDataSetObj.annualSalary}"/></td>
+                <td>
+                    <button class="button" name="itemId" value="${currentDataSetObj.id}"><b>Edit employee info</b></button>
+                </td>
             </tr>
         </c:forEach>
     </table>
