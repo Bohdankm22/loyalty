@@ -7,11 +7,6 @@
         </a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li><a href="loyaltyProgram">Loyalty Program</a></li>
-            <li><a href="offers">Offers</a></li>
-            <li><a href="addUser">Add User</a></li>
-        </ul>
 
         <ul class="nav navbar-nav pull-right">
             <li class=""><a>Welcome ${login}</a></li>
