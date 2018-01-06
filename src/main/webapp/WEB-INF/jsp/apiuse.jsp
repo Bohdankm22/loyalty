@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html lang="en">
+<head>
+    <title>HR Portal</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+</head>
+<body>
+
+<jsp:include page="banner.jsp"/>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>API Usage</h1>
+        <br/>
+        <p>To get JSON with all users use GET call to "{webserver}/user"</p>
+        <p>To get JSON with a particular user use GET call to "{webserver}/user/<b>userid</b>" where <b>userid</b>
+            is the user identification number (e.g. 1)</p>
+        <p>To get JSON with a particular user tasks use GET call to "{webserver}/user/<b>id</b>/task" where <b>userid</b>
+            is the user identification number (e.g. 1)</p>
+        <p>To get JSON with a particular task or a particular user use GET call to
+            "{webserver}/user/<b>id</b>/task/<b>taskid</b>" where <b>userid</b> is the user identification number (e.g. 1)
+            and <b>taskid</b> is the task identification number (e.g. 1) that assigned to user.</p>
+        <br />
+        <p>To get JSON with all tasks use GET call to "{webserver}/task"</p>
+        <p>To get JSON with a particular task use GET call to "{webserver}/task/<b>taskid</b>" where <b>taskid</b>
+            is the task identification number (e.g. 1)</p>
+    </div>
+
+</div>
+
+<jsp:include page="footer.jsp"/>
+
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
