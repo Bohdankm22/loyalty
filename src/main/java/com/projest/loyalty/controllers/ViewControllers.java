@@ -6,8 +6,6 @@ import com.projest.loyalty.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -37,7 +35,7 @@ public class ViewControllers {
 
     @RequestMapping(value = "/employeeview")
     public String empv(Map<String, Object> model, HttpSession session, HttpServletRequest request) {
-        long userid = (long)session.getAttribute("user");
+        long userid = (long) session.getAttribute("user");
         User user = userRepository.findOne(userid);
         model.put("tasks", user.getTasks());
         return "employeeview";
