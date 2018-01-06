@@ -19,7 +19,7 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>This is a manager view</h1>
+        <h1>This is a manager view for ${login}</h1>
     </div>
 
 

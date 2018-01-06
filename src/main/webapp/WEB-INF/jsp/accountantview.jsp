@@ -19,7 +19,7 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>This is a accountant view</h1>
+        <h1>This is a accountant view for ${login}</h1>
     </div>
 
     <h3>Here is a list of all employees salaries:</h3>
