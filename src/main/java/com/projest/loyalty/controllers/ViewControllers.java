@@ -43,6 +43,7 @@ public class ViewControllers {
 
     @RequestMapping(value = "/hrview")
     public String hrv(Map<String, Object> model, HttpSession session, HttpServletRequest request) {
+        model.put("emp", userRepository.findAll());
         return "hrview";
     }
 

@@ -43,6 +43,7 @@ public class LogInController {
         session.setAttribute("login", user.getName() + " " + user.getSurname());
         switch (user.getUserRole()) {
             case HR:
+                model.put("users", userRepository.findAll());
                 result = "hrview";
                 break;
             case ADMIN:
