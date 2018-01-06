@@ -21,9 +21,6 @@
             is the user identification number (e.g. 1)</p>
         <p>To get JSON with a particular user tasks use GET call to "{webserver}/user/<b>id</b>/task" where <b>userid</b>
             is the user identification number (e.g. 1)</p>
-        <p>To get JSON with a particular task or a particular user use GET call to
-            "{webserver}/user/<b>id</b>/task/<b>taskid</b>" where <b>userid</b> is the user identification number (e.g. 1)
-            and <b>taskid</b> is the task identification number (e.g. 1) that assigned to user.</p>
         <br />
         <p>To get JSON with all tasks use GET call to "{webserver}/task"</p>
         <p>To get JSON with a particular task use GET call to "{webserver}/task/<b>taskid</b>" where <b>taskid</b>
