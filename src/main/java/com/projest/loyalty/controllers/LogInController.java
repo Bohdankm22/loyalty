@@ -43,7 +43,7 @@ public class LogInController {
         session.setAttribute("login", user.getName() + " " + user.getSurname());
         switch (user.getUserRole()) {
             case HR:
-                model.put("users", userRepository.findAll());
+                model.put("employees", userRepository.findAll());
                 result = "hrview";
                 break;
             case ADMIN:
@@ -59,7 +59,7 @@ public class LogInController {
                 model.put("tasks", user.getTasks());
                 break;
             case ACCOUNTANT:
-                model.put("employees", userRepository.findAll());
+                model.put("emp", userRepository.findAll());
                 result = "accountantview";
                 break;
         }
