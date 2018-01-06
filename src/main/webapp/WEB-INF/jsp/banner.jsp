@@ -8,6 +8,9 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
+            <li><a href="/apiuse">API usage</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
             <li><a href="/about">About</a></li>
         </ul>
 
