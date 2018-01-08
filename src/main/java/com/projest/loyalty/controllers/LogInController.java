@@ -3,6 +3,7 @@ package com.projest.loyalty.controllers;
 import com.projest.loyalty.entity.User;
 import com.projest.loyalty.entity.UserRole;
 import com.projest.loyalty.repository.UserRepository;
+import com.projest.loyalty.utilities.ApiCall;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,7 +48,8 @@ public class LogInController {
                 result = "hrview";
                 break;
             case ADMIN:
-                model.put("users", userRepository.findAll());
+//                model.put("users", userRepository.findAll());
+                model.put("users", ApiCall.getAllbyAPI());
                 result = "adminview";
                 break;
             case MANAGER:

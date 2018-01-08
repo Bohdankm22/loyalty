@@ -1,4 +1,4 @@
-package com.projest.loyalty.controllers;
+package com.projest.loyalty.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

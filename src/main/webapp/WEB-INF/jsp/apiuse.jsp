@@ -16,14 +16,14 @@
     <div class="starter-template">
         <h1>API Usage</h1>
         <br/>
-        <p>To get JSON with all users use GET call to "{webserver}/user"</p>
-        <p>To get JSON with a particular user use GET call to "{webserver}/user/<b>userid</b>" where <b>userid</b>
+        <p>To get JSON with all users use GET call to "{webserver}/api/user"</p>
+        <p>To get JSON with a particular user use GET call to "{webserver}/api/user/<b>userid</b>" where <b>userid</b>
             is the user identification number (e.g. 1)</p>
-        <p>To get JSON with a particular user tasks use GET call to "{webserver}/user/<b>userid</b>/task" where <b>userid</b>
+        <p>To get JSON with a particular user tasks use GET call to "{webserver}/api/user/<b>userid</b>/task" where <b>userid</b>
             is the user identification number (e.g. 1)</p>
         <br />
-        <p>To get JSON with all tasks use GET call to "{webserver}/task"</p>
-        <p>To get JSON with a particular task use GET call to "{webserver}/task/<b>taskid</b>" where <b>taskid</b>
+        <p>To get JSON with all tasks use GET call to "{webserver}/api/task"</p>
+        <p>To get JSON with a particular task use GET call to "{webserver}/api/task/<b>taskid</b>" where <b>taskid</b>
             is the task identification number (e.g. 1)</p>
     </div>
 
